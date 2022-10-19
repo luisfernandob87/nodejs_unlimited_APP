@@ -18,9 +18,9 @@ const createOfertas = catchAsync(async (req, res, next) => {
   const { sessionUser } = req;
   const { nombre, rol, ubicacion, tipo_contratacion, empresaId } = req.body;
 
-  if (sessionUser.role !== "admin") {
-    return next(new AppError("No eres Admin", 400));
-  }
+  // if (sessionUser.role !== "admin") {
+  //   return next(new AppError("No eres Admin", 400));
+  // }
   const newOferta = await Oferta.create({
     nombre,
     rol,
