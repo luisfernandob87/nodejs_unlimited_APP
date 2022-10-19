@@ -16,11 +16,11 @@ const getAplicaciones = catchAsync(async (req, res, next) => {
 });
 
 const createAplicacion = catchAsync(async (req, res, next) => {
-  const { idUsuario, idOferta, fecha_de_aplicacion } = req.body;
+  const { usuarioId, ofertaId, fecha_de_aplicacion } = req.body;
 
   const newAplicacion = await Aplicacion.create({
-    idUsuario,
-    idOferta,
+    usuarioId,
+    ofertaId,
     fecha_de_aplicacion,
   });
   res.status(201).json({
@@ -34,7 +34,7 @@ const updateAplicacion = catchAsync(async (req, res, next) => {});
 const deleteAplicacion = catchAsync(async (req, res, next) => {
   const { user, aplicacion } = req;
 
-  if (user.id !== aplicacion.idUsuario) {
+  if (user.id !== aplicacion.usuarioId) {
     return next(new AppError("No es tu aplicacion", 400));
   }
 

@@ -1,10 +1,12 @@
 const { Oferta } = require("../models/oferta.model");
+const { Empresa } = require("../models/empresa.model");
 const { AppError } = require("../utils/appError.util");
 
 const { catchAsync } = require("../utils/catchAsync.util");
 
 const getOfertas = catchAsync(async (req, res, next) => {
   const ofertas = await Oferta.findAll({
+    include: [{ model: Empresa }],
     where: { status: "active" },
   });
   res.status(200).json({
@@ -14,7 +16,7 @@ const getOfertas = catchAsync(async (req, res, next) => {
 });
 const createOfertas = catchAsync(async (req, res, next) => {
   const { sessionUser } = req;
-  const { nombre, rol, ubicacion, tipo_contratacion, idEmpresa } = req.body;
+  const { nombre, rol, ubicacion, tipo_contratacion, empresaId } = req.body;
 
   if (sessionUser.role !== "admin") {
     return next(new AppError("No eres Admin", 400));
@@ -24,7 +26,7 @@ const createOfertas = catchAsync(async (req, res, next) => {
     rol,
     ubicacion,
     tipo_contratacion,
-    idEmpresa,
+    empresaId,
   });
   res.status(201).json({
     status: "success",
@@ -33,7 +35,7 @@ const createOfertas = catchAsync(async (req, res, next) => {
 });
 const updateOfertas = catchAsync(async (req, res, next) => {
   const { oferta } = req;
-  const { nombre, rol, ubicacion, tipo_contratacion, idEmpresa, status } =
+  const { nombre, rol, ubicacion, tipo_contratacion, empresaId, status } =
     req.body;
 
   await oferta.update({
@@ -41,7 +43,7 @@ const updateOfertas = catchAsync(async (req, res, next) => {
     rol,
     ubicacion,
     tipo_contratacion,
-    idEmpresa,
+    empresaId,
     status,
   });
   res.status(201).json({

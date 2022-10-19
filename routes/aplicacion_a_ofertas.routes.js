@@ -12,7 +12,7 @@ const { aplicacionExists } = require("../middlewares/aplicacion.middlewares");
 
 const aplicacionRouter = express.Router();
 
-aplicacionRouter.use(protectSession);
+// aplicacionRouter.use(protectSession);
 
 aplicacionRouter.get("/", getAplicaciones);
 

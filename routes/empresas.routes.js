@@ -12,7 +12,7 @@ const { empresaExists } = require("../middlewares/empresa.middlewares");
 
 const empresaRouter = express.Router();
 
-empresaRouter.use(protectSession);
+// empresaRouter.use(protectSession);
 
 empresaRouter.get("/", getEmpresas);
 

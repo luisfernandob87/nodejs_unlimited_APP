@@ -27,7 +27,7 @@ const getAllUsers = catchAsync(async (req, res, next) => {
 });
 
 const createUser = catchAsync(async (req, res, next) => {
-  const { nombre, apellido, email, password } = req.body;
+  const { nombre, apellido, email, password, acerca_de_mi } = req.body;
 
   // Encrypt the password
   const salt = await bcrypt.genSalt(12);
@@ -38,6 +38,7 @@ const createUser = catchAsync(async (req, res, next) => {
     apellido,
     email,
     password: hashedPassword,
+    acerca_de_mi,
   });
 
   // Remove password from response
@@ -51,7 +52,7 @@ const createUser = catchAsync(async (req, res, next) => {
 });
 
 const updateUser = catchAsync(async (req, res, next) => {
-  const { nombre, apellido, email, password, role } = req.body;
+  const { nombre, apellido, email, password, role, acerca_de_mi } = req.body;
   const { user } = req;
 
   // Encrypt the password
@@ -64,6 +65,7 @@ const updateUser = catchAsync(async (req, res, next) => {
     email,
     password: hashedPassword,
     role,
+    acerca_de_mi,
   });
 
   res.status(200).json({

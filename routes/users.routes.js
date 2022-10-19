@@ -28,7 +28,7 @@ usersRouter.post("/login", login);
 usersRouter.get("/", getAllUsers);
 
 // Protecting below endpoints
-usersRouter.use(protectSession);
+// usersRouter.use(protectSession);
 
 usersRouter.patch("/:id", userExists, protectUsersAccount, updateUser);
 

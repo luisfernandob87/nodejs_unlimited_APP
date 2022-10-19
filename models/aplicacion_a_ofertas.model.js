@@ -7,11 +7,11 @@ const Aplicacion = db.define("aplicacion", {
     autoIncrement: true,
     allowNull: false,
   },
-  idUsuario: {
+  usuarioId: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
-  idOferta: {
+  ofertaId: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },

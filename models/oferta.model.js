@@ -23,7 +23,7 @@ const Oferta = db.define("oferta", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  idEmpresa: {
+  empresaId: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },

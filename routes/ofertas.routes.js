@@ -15,9 +15,9 @@ const { ofertaExists } = require("../middlewares/ofertas.middlewares");
 
 const ofertaRouter = express.Router();
 
-ofertaRouter.use(protectSession);
+// ofertaRouter.use(protectSession);
 
-ofertaRouter.get("/", protectUsersAccount, getOfertas);
+ofertaRouter.get("/", getOfertas);
 
 ofertaRouter.post("/", createOfertas);
 

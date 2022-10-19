@@ -24,54 +24,9 @@ const User = db.define("user", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  fecha_de_nacimiento: {
-    type: DataTypes.DATE,
-    allowNull: true,
-  },
-  pais: {
+  acerca_de_mi: {
     type: DataTypes.STRING,
-    allowNull: true,
-  },
-  ciudad: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
-  codigo_postal: {
-    type: DataTypes.INTEGER,
-    allowNull: true,
-  },
-  cargo_reciente: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
-  estudiante: {
-    type: DataTypes.BOOLEAN,
-    allowNull: true,
-  },
-  universidad: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
-  titulo: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
-  especializacion: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
-  anio_inicio: {
-    type: DataTypes.DATE,
-    allowNull: true,
-  },
-  anio_fin: {
-    type: DataTypes.DATE,
-    allowNull: true,
-  },
-  en_busqueda_de_empleo: {
-    type: DataTypes.BOOLEAN,
-    allowNull: true,
-    defaultValue: false,
+    allowNull: false,
   },
   role: {
     type: DataTypes.STRING,

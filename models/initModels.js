@@ -5,13 +5,13 @@ const { Oferta } = require("./oferta.model");
 const { Aplicacion } = require("./aplicacion_a_ofertas.model");
 
 const initModels = () => {
-  User.hasMany(Aplicacion, { foreignKey: "idUsuario" });
+  User.hasMany(Aplicacion, { foreignKey: "usuarioId" });
   Aplicacion.belongsTo(User);
 
-  Empresa.hasMany(Oferta, { foreignKey: "idEmpresa" });
+  Empresa.hasMany(Oferta, { foreignKey: "empresaId" });
   Oferta.belongsTo(Empresa);
 
-  Oferta.hasMany(Aplicacion, { foreignKey: "idOferta" });
+  Oferta.hasMany(Aplicacion, { foreignKey: "ofertaId" });
   Aplicacion.belongsTo(Oferta);
 };
 
