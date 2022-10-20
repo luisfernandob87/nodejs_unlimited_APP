@@ -26,6 +26,19 @@ const getAllUsers = catchAsync(async (req, res, next) => {
   });
 });
 
+const getUser = catchAsync(async (req, res, next) => {
+  const { id } = req.params;
+
+  const user = await User.findOne({
+    attributes: { exclude: ["password"] },
+    where: { id },
+  });
+  res.status(201).json({
+    status: "success",
+    data: { user },
+  });
+});
+
 const createUser = catchAsync(async (req, res, next) => {
   const { nombre, apellido, email, password, acerca_de_mi } = req.body;
 
@@ -117,4 +130,5 @@ module.exports = {
   updateUser,
   deleteUser,
   login,
+  getUser,
 };

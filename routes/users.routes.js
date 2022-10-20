@@ -7,6 +7,7 @@ const {
   updateUser,
   deleteUser,
   login,
+  getUser,
 } = require("../controllers/users.controller");
 
 // Middlewares
@@ -29,6 +30,8 @@ usersRouter.get("/", getAllUsers);
 
 // Protecting below endpoints
 // usersRouter.use(protectSession);
+
+usersRouter.get("/:id", getUser);
 
 usersRouter.patch("/:id", userExists, protectUsersAccount, updateUser);
 
